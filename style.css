@@ -19,6 +19,24 @@ body {
   background-size: cover; /* Resize the background image to cover the entire container */
 }
 
+.head{
+  color: #fff;
+}
+.head4{
+  color: #fff;
+  margin: 2px;
+}
+.head1{
+  color: rgb(247, 247, 22);
+  margin-bottom: 1px;
+}
+.head2{
+  color:rgb(69, 220, 77);
+ 
+}
+.head3{
+  color:rgb(255, 255, 255);
+}
 
 
 #demo {
@@ -95,7 +113,8 @@ header {
 .card h3 {
   margin-top: 0;
   font-size: 1.5em;
-  color: #333;
+  color: #018df8;
+  
 }
 
 .card p {
@@ -117,6 +136,7 @@ header {
   text-decoration: none;
   border-radius: 3px;
   transition: background-color 0.3s;
+  border-radius: 10px;
 }
 
 .card a:hover {
@@ -124,14 +144,15 @@ header {
   color: #fff;
 }
 @media screen and (max-width: 600px) {
-        .card {
-          width: 100%;
-          margin-right: 0;
-        }
-        .logo-left,
-        .logo-right {
-          height: 45px;
-        }
+  .card {
+    width: 100%;
+    margin-right: 0;
+  }
+  .logo-left,
+  .logo-right {
+    height: 45px;
+  }
+}
 
 
 
@@ -163,13 +184,3 @@ header {
     margin: 10px 0;
     color: #666;
   }
-
-
-
-
-
-
-
-
-
-
