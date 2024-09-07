@@ -1,215 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digifest 2k24 Contest Central</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,700;1,700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css\bootstrap.min.css">
-    <script>
-
-
-  
-
-      var countDownDate = new Date("apr 13, 2024 08:59:259").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
-    </script>
-  </head>
-
-  <body>
-    
-    <header>
-      <div class="header" id="myHeader">
-      <!img class="logo-left" src="df.png" alt="Logo 1" height="100px" />
-      <h1>Digifest 2k24</h1>
-      <img class="logo-right" src="df.png" alt="Logo 2" height="100" />
-    </div>
-    </header>
-    <b>
-      <h4 style="text-align: center;" class="head">DR MAHALINGAM COLLEGE OF ENGINEERING AND TECHNOLOGY</h4>
-      <h5 style="text-align: center;" class="head">DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING</h5>
-
-      <h2 style="text-align: center;" class="head1">DIGIFLASH</h2>
-      <h5 style="text-align: center;" class="head4">(Department Association)</h5>
-      <h4 style="text-align: center;" class="head3">PROUDLY PRESENTS</h4>
-      <h1 style="text-align: center;" class="head2">
-        DIGIFEST 2K24
-      </h1>
-    <p id="demo"></p>
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice to Text Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #output {
+            width: 100%;
+            height: 150px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+            background-color: #f9f9f9;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .status {
+            margin-top: 10px;
+            font-size: 14px;
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
     <div class="container">
-      <div class="card">
-        <div class="card-content">
-          <h3>Code Jam</h3>
-          <p>Timing: 9:00 AM - 11:00 AM</p>
-          <p>Venue: Room C127</p>
-          <!img src="" alt="Code Jam Poster" />
-          <p>
-            Description: <br> Get ready for a coding marathon! Solve 3 coding
-            questions within 2 hours and showcase your programming prowess. This
-            individual competition is open to a total of 60 participants.
-          </p>
-          <p>Participant Limit: 60 individuals</p>
-          <a href="https://forms.office.com/r/jNLCLkrE0V">Register Now</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-content">
-          <h3>Webzilla</h3>
-          <p>Timing: 11:00 AM - 1:00 PM</p>
-          <p>Venue: Room C127</p>
-          <!img
-            src=""
-            alt="Web Designing Warriors Poster"
-          />
-          <p>
-            Description: <br>Showcase your web design skills and create visually
-            stunning websites. Whether it's HTML, CSS, or JavaScript,
-            demonstrate your mastery in this web-centric competition.
-          </p>
-          <p>Team Limit: 30 teams (2 members per team)</p>
-          <a href="https://forms.office.com/r/upNt5Vmz0H">Register Now</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-content">
-          <h3>Digi Treasure</h3>
-          <p>Timing: 11:00 AM - 1:00 PM</p>
-          <p>Venue: Room C434</p>
-          <!img src="placeholder_poster_3.jpg" alt="Digi Treasure Poster" />
-          <p>
-            Description: <br>Embark on an adventure to find the hidden treasures of
-            Digiflash! Solve clues one by one to uncover the ultimate prize. Are
-            you ready for the challenge?
-          </p>
-          <p>Team Limit: 30 teams (2 members per team)</p>
-          <a href="https://forms.office.com/r/u9eyV2bNCk">Register Now</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-content">
-          <h3>Idea Storm</h3>
-          <p>Timing: 9:00 AM - 12:00 PM</p>
-          <p>Venue: Room C126</p>
-          <!img src="placeholder_poster_4.jpg" alt="IdeaStorm Poster" />
-          <p>
-            Description: <br>Unleash your creativity in this idea presentation
-            competition! Form teams of 2 and present your innovative ideas on
-            the latest technology topics. This competition is limited to 20
-            teams.
-          </p>
-          <p>Participant Limit: 20 teams (2 members per team)</p>
-          <a href="https://forms.office.com/r/nwwDm9gHdS">Register Now</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-content">
-          <h3>Poova Thalaiya</h3>
-          <p>Timing: 2:00 PM - 4:00 PM</p>
-          <p>Venue: Mechanical Seminar Hall</p>
-          <!img src="placeholder_poster_5.jpg" alt="Poova Thalaiya Poster" />
-          <p>
-            Description: <br>Get ready for some fun in Poova Thalaiya! This team
-            event, consisting of 2 members per team, promises exciting
-            challenges and activities for participants to enjoy.
-          </p>
-          <p>Team Limit: Unlimited</p>
-          <a href="https://forms.office.com/r/BbEq1nNWTx">Register Now</a>
-        </div>
-      </div>
-      <div class="card1">
-        <div class="card-content">
-          <h2>How to Register</h2>
-            <p>
-                To register for an event, simply click on the "Register Now" link next to
-                your desired competition. Fill out the registration form with your
-                details, and you'll be all set to participate!
-            </p>
-            <br>
-            <h2>Important Dates</h2>
-            <ul>
-                <li>Registration Deadline: April 10, 2024</li>
-                <li>Event Date: April 13, 2024</li>
-            </ul>
-            
-            <p>
-              Don't miss out on this exciting opportunity to showcase your skills and
-              connect with fellow enthusiasts. Join us at Digiflash Contest Central and
-              let the games begin!
-          </p>
-          <br>
-            <h2>Contact Details</h2>
-            <ul>
-                <li>Mohan Praveen K: +91 9344008650 </li>
-                <li>Enpatamilan S +91 6382914506</li>
-            </ul>
-            </ul>
-        </div>
-      </div>
+        <h1>Voice to Text</h1>
+        <button id="startBtn">Start Speaking</button>
+        <div class="status" id="status">Click the button and allow microphone access</div>
+        <div id="output" contenteditable="true">Your converted text will appear here...</div>
     </div>
 
+    <script>
+        const startBtn = document.getElementById('startBtn');
+        const output = document.getElementById('output');
+        const status = document.getElementById('status');
 
-        <!-- <div class="footer">
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
 
-            <h2>How to Register</h2>
-            <p>
-                To register for an event, simply click on the "Register Now" link next to
-                your desired competition. Fill out the registration form with your
-                details, and you'll be all set to participate!
-            </p>
-            
-            <h2>Important Dates</h2>
-            <ul>
-                <li>Registration Deadline: April 10, 2024</li>
-                <li>Event Date: April 13, 2024</li>
-            </ul>
-            
-            <p>
-                Don't miss out on this exciting opportunity to showcase your skills and
-                connect with fellow enthusiasts. Join us at Digiflash Contest Central and
-                let the games begin!
-            </p>
-            <h2>Contact Details</h2>
-            <ul>
-                <li>Mohan Praveen: +91 93440 08650 </li>
-                <li></li>
-            </ul>
-        </div> -->
-        
+        recognition.continuous = false;
+        recognition.lang = 'en-US'; 
+        recognition.interimResults = false;
 
-    </body>
-    </html>
+        startBtn.addEventListener('click', () => {
+            recognition.start();
+            status.textContent = 'Listening... Please speak.';
+            status.classList.remove('error');
+        });
+
+        recognition.onresult = function(event) {
+            const transcript = event.results[0][0].transcript;
+            output.textContent = transcript;
+            status.textContent = 'Speech recognized successfully!';
+        };
+
+        recognition.onspeechend = function() {
+            recognition.stop();
+            status.textContent = 'Speech has stopped. You can start again.';
+        };
+
+        recognition.onerror = function(event) {
+            output.textContent = '';
+            status.textContent = 'Error occurred: ' + event.error;
+            status.classList.add('error');
+        };
+
+        recognition.onnomatch = function() {
+            status.textContent = 'No speech recognized. Please try again.';
+            status.classList.add('error');
+        };
+
+    </script>
+</body>
+</html>
