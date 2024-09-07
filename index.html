@@ -37,23 +37,11 @@
         .error {
             color: red;
         }
-        select {
-            padding: 10px;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Voice to Text Converter</h1>
-        
-        <!-- Language Selector -->
-        <select id="languageSelect">
-            <option value="en-US">English</option>
-            <option value="ta-IN">Tamil</option>
-        </select>
-        
         <button id="startBtn">Start Speaking</button>
         <div class="status" id="status">Click the button and allow microphone access</div>
         <div id="output" contenteditable="true">Your converted text will appear here...</div>
@@ -63,37 +51,53 @@
         const startBtn = document.getElementById('startBtn');
         const output = document.getElementById('output');
         const status = document.getElementById('status');
-        const languageSelect = document.getElementById('languageSelect');
 
+        // Initialize the SpeechRecognition API
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         const recognition = new SpeechRecognition();
 
+        // Set recognition properties
         recognition.continuous = false;
         recognition.interimResults = false;
+        let detectedLanguage = 'en-US'; // Default language is English
+        recognition.lang = detectedLanguage;
 
-        // Start speech recognition when the button is clicked
+        // Function to start recognition and convert voice to text
         startBtn.addEventListener('click', () => {
-            // Set the recognition language based on user selection
-            recognition.lang = languageSelect.value;
+            recognition.lang = detectedLanguage; // Use the default or detected language
             recognition.start();
-            status.textContent = `Listening... Please speak in ${languageSelect.selectedOptions[0].text}.`;
+            status.textContent = 'Listening... Please speak. Detecting language...';
             status.classList.remove('error');
         });
 
+        // Capture speech result
         recognition.onresult = function(event) {
             const transcript = event.results[0][0].transcript;
             output.textContent = transcript;
-            status.textContent = 'Speech recognized successfully!';
+
+            // Detect if the speech contains Tamil characters
+            if (/[\u0B80-\u0BFF]/.test(transcript)) {
+                detectedLanguage = 'ta-IN'; // Tamil characters detected, switch to Tamil
+            } else {
+                detectedLanguage = 'en-US'; // Otherwise, use English
+            }
+
+            status.textContent = `Speech recognized successfully! Detected Language: ${detectedLanguage === 'en-US' ? 'English' : 'Tamil'}`;
         };
 
+        // Stop recognition on speech end
         recognition.onspeechend = function() {
             recognition.stop();
-            status.textContent = 'Speech has stopped. You can start again.';
+            status.textContent = `Speech processing completed. Detected Language: ${detectedLanguage === 'en-US' ? 'English' : 'Tamil'}`;
         };
 
+        // Handle errors during recognition
         recognition.onerror = function(event) {
             if (event.error === 'not-allowed') {
                 status.textContent = 'Error: Microphone access is not allowed. Check your browser settings.';
+                status.classList.add('error');
+            } else if (event.error === 'no-speech') {
+                status.textContent = 'No speech detected. Please try again.';
                 status.classList.add('error');
             } else {
                 status.textContent = 'Error occurred: ' + event.error;
