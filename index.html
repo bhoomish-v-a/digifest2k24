@@ -37,11 +37,23 @@
         .error {
             color: red;
         }
+        select {
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Voice to Text</h1>
+        <h1>Voice to Text Converter</h1>
+        
+        <!-- Language Selector -->
+        <select id="languageSelect">
+            <option value="en-US">English</option>
+            <option value="ta-IN">Tamil</option>
+        </select>
+        
         <button id="startBtn">Start Speaking</button>
         <div class="status" id="status">Click the button and allow microphone access</div>
         <div id="output" contenteditable="true">Your converted text will appear here...</div>
@@ -51,17 +63,20 @@
         const startBtn = document.getElementById('startBtn');
         const output = document.getElementById('output');
         const status = document.getElementById('status');
+        const languageSelect = document.getElementById('languageSelect');
 
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         const recognition = new SpeechRecognition();
 
         recognition.continuous = false;
-        recognition.lang = 'en-US'; 
         recognition.interimResults = false;
 
+        // Start speech recognition when the button is clicked
         startBtn.addEventListener('click', () => {
+            // Set the recognition language based on user selection
+            recognition.lang = languageSelect.value;
             recognition.start();
-            status.textContent = 'Listening... Please speak.';
+            status.textContent = `Listening... Please speak in ${languageSelect.selectedOptions[0].text}.`;
             status.classList.remove('error');
         });
 
@@ -77,16 +92,14 @@
         };
 
         recognition.onerror = function(event) {
-            output.textContent = '';
-            status.textContent = 'Error occurred: ' + event.error;
-            status.classList.add('error');
+            if (event.error === 'not-allowed') {
+                status.textContent = 'Error: Microphone access is not allowed. Check your browser settings.';
+                status.classList.add('error');
+            } else {
+                status.textContent = 'Error occurred: ' + event.error;
+                status.classList.add('error');
+            }
         };
-
-        recognition.onnomatch = function() {
-            status.textContent = 'No speech recognized. Please try again.';
-            status.classList.add('error');
-        };
-
     </script>
 </body>
 </html>
